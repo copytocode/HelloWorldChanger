@@ -24,6 +24,19 @@
             margin-bottom: 2rem;
         }
         
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
         button {
             padding: 12px 24px;
             font-size: 1rem;
@@ -46,7 +59,11 @@
     
     <script>
         function changeGreeting() {
-            document.getElementById('greeting').textContent = 'Hello, Mitesh!';
+            const greeting = document.getElementById('greeting');
+            greeting.classList.remove('fade-in');
+            void greeting.offsetWidth;
+            greeting.textContent = 'Hello, Mitesh!';
+            greeting.classList.add('fade-in');
         }
     </script>
 </body>
